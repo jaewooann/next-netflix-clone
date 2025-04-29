@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ReactQueryClientProvider } from "config/reactQueryClientProvider";
 import { ThemeProvider } from "config/material-tailwind-theme-provider";
+import Header from "components/header";
+import Footer from "components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,7 +43,9 @@ export default function RootLayout({
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
+            <Header />
             {children}
+            <Footer />
           </body>
         </html>
       </ThemeProvider>
