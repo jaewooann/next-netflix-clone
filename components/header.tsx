@@ -1,8 +1,12 @@
 "use client";
 
 import Logo from "./logo";
+import { useRecoilState } from "recoil";
+import { searchState } from "utils/recoil/atoms";
 
 export default function Header() {
+  const [search, setSearch] = useRecoilState(searchState);
+
   return (
     <header className="fixed z-50 top-0 left-0 right-0 px-4 py-2 bg-gray-900 flex items-center justify-between">
       <nav className="flex items-center gap-4">
@@ -19,6 +23,8 @@ export default function Header() {
           type="text"
           className="bg-transparent text-white"
           placeholder="search movies"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
     </header>
